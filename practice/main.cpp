@@ -5,7 +5,6 @@
 #include <ctime>
 #include <sstream>
 #include "directory.h"
-using namespace std;
 
 bool running = true;
 void backupFileSystem();
@@ -105,6 +104,11 @@ int list_functions()
             // cout << "2" << endl;
             cout << "Enter the file name: ";
             cin >> fileName;
+            if(root.checkExistence(fileName))
+            {
+                cout << "File already exists" << endl;
+                break;
+            }
             cout << "Enter the file content: ";
             cin.ignore(); // Clear the newline from the buffer
             getline(std::cin, fileContent);
